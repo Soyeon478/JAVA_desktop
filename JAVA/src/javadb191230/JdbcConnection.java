@@ -5,15 +5,15 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class JdbcConnection {
-	
+
 	public static Connection makeConnection() {
-		
+
 		Connection con = null;
-		
+
 		String user = "PSY200106";
 		String password = "1234";
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		
+
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			con = DriverManager.getConnection(url, user, password);
@@ -27,5 +27,5 @@ public class JdbcConnection {
 		}
 		return con;
 	}
-	
+
 }

@@ -6,13 +6,13 @@ import javadb191230.JdbcConnection;
 
 //쿼리문을 모아놓은 클래스 
 public class Membersql {
-	
+
 	// DB 접속을 위한 변수 선언
 	Connection con = null;
-	
+
 	// 쿼리문 전송을 위한 변수 선언
 	PreparedStatement pstmt = null;
-	
+
 	// 조회(SELECT) 결과를 저장하기 위한 변수 선언
 	ResultSet rs = null;
 
@@ -38,9 +38,8 @@ public class Membersql {
 			e.printStackTrace();
 		}
 		System.out.println("회원가입 완료!!");
-		
-	}
 
+	}
 
 	// 아이디, 비밀번호 확인 메소드
 	public boolean idCheck(String id, String password) {
@@ -51,9 +50,9 @@ public class Membersql {
 			pstmt.setString(1, id);
 			pstmt.setString(2, password);
 			rs = pstmt.executeQuery();
-			if(rs.next())
+			if (rs.next())
 				checkResult = true;
-			else 
+			else
 				checkResult = false;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -74,29 +73,27 @@ public class Membersql {
 		}
 		System.out.println("수정 성공");
 	}
-	
-	
+
 	// 회원 탈퇴 메소드
 	public void deleteMember(String password) {
 		Scanner sc = new Scanner(System.in);
 		String sql = "DELETE FROM MEMBER WHERE PASSWORD = ?";
-		
+
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, password);
 			int result = pstmt.executeUpdate();
-			if(result > 0) {
+			if (result > 0) {
 				System.out.println("탈퇴가 완료되었습니다.");
-		} else if(result == 0) {
+			} else if (result == 0) {
 				System.out.println("탈퇴에 실패하였습니다.");
 				System.out.println("아이디와 비밀번호를 확인해주세요.");
-		}
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
 	}
-	
 
 	public void memberList() {
 		String sql = "SELECT * FROM MEMBER ORDER BY BIRTH DESC";
@@ -105,17 +102,17 @@ public class Membersql {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				System.out.print(rs.getString("ID")+"\t");
-				System.out.print(rs.getString("PASSWORD")+"\t");
-				System.out.print(rs.getString("NAME")+"\t");
-				System.out.print(rs.getString("BIRTH")+"\t");
-				System.out.print(rs.getString("EMAIL")+"\t");
-				System.out.print(rs.getString("PHONE")+"\t");
-				System.out.println(rs.getString("TO_DATE")+"\t");
+				System.out.print(rs.getString("ID") + "\t");
+				System.out.print(rs.getString("PASSWORD") + "\t");
+				System.out.print(rs.getString("NAME") + "\t");
+				System.out.print(rs.getString("BIRTH") + "\t");
+				System.out.print(rs.getString("EMAIL") + "\t");
+				System.out.print(rs.getString("PHONE") + "\t");
+				System.out.println(rs.getString("TO_DATE") + "\t");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}		
+		}
 	}
 
 }
