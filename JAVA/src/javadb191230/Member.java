@@ -10,8 +10,8 @@ public class Member {
 	
 	@Override
 	public String toString() {
-		return "Member [id=" + id + ", password=" + password + ", name=" + name + ", birth=" + birth + ", email="
-				+ email + ", phone=" + phone + "]";
+		return "Member [아이디=" + id + ", 비밀번호=" + password + ", 이름=" + name + ", 생일=" + birth + ", 이메일="
+				+ email + ", 연락처=" + phone + "]";
 	}
 	
 	public String getId() {

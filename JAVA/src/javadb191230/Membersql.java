@@ -31,9 +31,7 @@ public class Membersql {
 			pstmt.setString(4, member.getBirth());
 			pstmt.setString(5, member.getEmail());
 			pstmt.setString(6, member.getPassword());
-
 			pstmt.executeUpdate();
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -43,8 +41,9 @@ public class Membersql {
 
 	// 아이디, 비밀번호 확인 메소드
 	public boolean idCheck(String id, String password) {
-		String sql = "SELECT ID FROM MEMBER WHERE ID=? AND PASSWORD=?";
-		boolean checkResult = false;
+		String sql = "SELECT ID FROM MEMBER WHERE ID = ? AND PASSWORD = ?";
+		boolean checkResult = true;
+		
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
@@ -58,11 +57,13 @@ public class Membersql {
 			e.printStackTrace();
 		}
 		return checkResult;
+		
 	}
 
 	// 폰번호 변경 메소드
 	public void memberModify(String id, String phone) {
-		String sql = "UPDATE MEMBER SET PHONE=? WHERE ID=?";
+		String sql = "UPDATE MEMBER SET PHONE = ? WHERE ID = ?";
+		
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, phone);
@@ -72,6 +73,7 @@ public class Membersql {
 			e.printStackTrace();
 		}
 		System.out.println("수정 성공");
+		
 	}
 
 	// 회원 탈퇴 메소드
@@ -95,6 +97,7 @@ public class Membersql {
 
 	}
 
+	// 관리자 아이디가 일치하면 회원 목록을 보여주는 메소드
 	public void memberList() {
 		String sql = "SELECT * FROM MEMBER ORDER BY BIRTH DESC";
 
@@ -113,6 +116,7 @@ public class Membersql {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
 	}
 
 }

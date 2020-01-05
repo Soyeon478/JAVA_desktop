@@ -22,6 +22,7 @@ public class MemberMain {
 				break;
 			case 1:
 				member = new Member();
+				
 				System.out.print("아이디");
 				String id = sc.next();
 				member.setId(id);
@@ -56,6 +57,7 @@ public class MemberMain {
 				password = sc.next();
 
 				boolean checkResult = sql.idCheck(id, password);
+				
 				if (checkResult) {
 					System.out.print("변경할 전화번호 입력");
 					phone = sc.next();
@@ -70,10 +72,10 @@ public class MemberMain {
 				System.out.print("비밀번호 : ");
 				password = sc.next();
 
-				boolean checkResult2 = sql.idCheck(id, password);
+				checkResult = sql.idCheck(id, password);
 
-				if (checkResult2) {
-					System.out.print("비밀번호를 한번 더 입력 : ");
+				if (checkResult) {
+					System.out.print("비밀번호 한번 더 입력 : ");
 					password = sc.next();
 					sql.deleteMember(password);
 				} else
