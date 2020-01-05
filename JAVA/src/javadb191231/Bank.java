@@ -2,6 +2,7 @@ package javadb191231;
 
 public class Bank {
 	
+	
 	private int customerNo;
 	private String name;
 	private String accountNo;
