@@ -8,7 +8,7 @@ public class JdbcConnection {
 		
 		Connection con = null;
 		
-		String user = "PSY191231";
+		String user = "PSY200107";
 		String password = "1234";
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		
