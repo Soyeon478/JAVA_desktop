@@ -103,6 +103,18 @@ public class Banksql {
 	// 송금 메소드
 	
 	
+	// 회원 조회 메소드
+	public void customerList() {
+		String sql = "SELECT * FROM BANK";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.executeQuery();
+			System.out.println(customer.toString());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}		
+	}
 	
 	
 }

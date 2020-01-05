@@ -80,7 +80,7 @@ public class BankMain {
 				
 				break;
 			case 6 :
-				
+				sql.customerList();
 				break;
 			case 7 :
 				run = false;
