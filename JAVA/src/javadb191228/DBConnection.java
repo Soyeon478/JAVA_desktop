@@ -1,4 +1,4 @@
-package java191228;
+package javadb191228;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

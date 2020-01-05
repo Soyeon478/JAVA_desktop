@@ -1,4 +1,4 @@
-package java191228;
+package javadb191228;
 
 import java.sql.*;
 import java.util.*;
@@ -6,12 +6,6 @@ import java.util.*;
 public class JdbcMain {
 
 	public static void main(String[] args) {
-
-		// 1. DBConnection 클래스의 makeConnection 메소드 호출하여 DB 접속 정보(con)를 가져옴
-		// 2. con 객체를 가지고 DBsql 클래스의 메소드 호출하여 원하는 쿼리문 실행
-
-//		Connection con = null;
-//		con = DBConnection.makeConnection();
 
 		DBsql sql = new DBsql();
 
@@ -71,7 +65,6 @@ public class JdbcMain {
 		for (int i = 0; i < stuList.size(); i++) {
 			System.out.println(stuList.get(i).toString());
 		}
-		sc.close();
 	}
 
 }

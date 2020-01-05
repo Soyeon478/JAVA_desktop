@@ -1,9 +1,9 @@
-package java191228;
+package javadb191228;
 
 import java.sql.*;
 import java.util.*;
 
-// 쿼리문을 모아놓은 클래스
+//쿼리문을 모아놓은 클래스
 public class DBsql {
 
 	// DB 접속을 위한 변수 선언
@@ -45,7 +45,7 @@ public class DBsql {
 
 	// STUDENT 테이블에 데이터 추가
 	public void insertDB() {
-		String sql = "INSERT INTO STUDENT VALUES(6, '학생6', 20, '인천광역시 계산동', '남성', '010-6666-6666')";
+		String sql = "INSERT INTO STUDENT VALUES(7, '학생7', 23, '인천광역시 검암동', '여성', '010-7777-7777')";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -84,7 +84,7 @@ public class DBsql {
 	public void insertDB3() {
 		Scanner sc = new Scanner(System.in);
 		String sql = "INSERT INTO STUDENT VALUES(?,?,?,?,?,?)";
-
+		
 		try {
 			pstmt = con.prepareStatement(sql);
 			System.out.println("번호 입력");
@@ -106,7 +106,7 @@ public class DBsql {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		sc.close();
+		
 	}
 
 	// ArrayList를 이용하여 STUDENT 테이블 전체 조회
@@ -185,7 +185,7 @@ public class DBsql {
 	public void selectDB5() {
 		Scanner sc = new Scanner(System.in);
 		String sql = "SELECT * FROM STUDENT WHERE ADDRESS LIKE ?";
-
+		
 		try {
 			pstmt = con.prepareStatement(sql);
 			System.out.println("주소를 입력 하세요");
@@ -203,7 +203,7 @@ public class DBsql {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		sc.close();
+		
 	}
 
 	// STUDENT 테이블 학생 번호 변경
@@ -221,23 +221,23 @@ public class DBsql {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		sc.close();
+
 	}
 
 	// STUDENT 테이블 데이터 삭제
 	public void deleteStu() {
-		Scanner sc = new Scanner(System.in);
+		Scanner scan = new Scanner(System.in);
 		String sql = "DELETE FROM STUDENT WHERE STUDENTNO = ?";
 
 		try {
 			pstmt = con.prepareStatement(sql);
 			System.out.print("삭제할 학생번호를 입력하세요 : ");
-			pstmt.setInt(1, sc.nextInt());
+			pstmt.setInt(1, scan.nextInt());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		sc.close();
+
 	}
 
 }
